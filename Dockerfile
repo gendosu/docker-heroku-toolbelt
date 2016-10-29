@@ -2,24 +2,16 @@
 #
 # VERSION               0.0.1
 
-FROM      gendosu/ubuntu-ruby:2.2.4
+FROM      gendosu/ubuntu-base:latest
 
 MAINTAINER Gen Takahashi "gendosu@gmail.com"
 
 RUN apt-get update \
-&&  apt-get -y upgrade \
+&&  apt-get upgrade -y --force-yes \
 &&  apt-get install -y --force-yes \
-    postgresql-client \
-    libpq-dev \
-    fonts-hanazono \
-    imagemagick \
-    language-pack-ja \
-    fonts-migmix \
-    sqlite3 \
-    libsqlite3-dev \
     sudo \
-&& apt-get clean \
-&& rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+&&  apt-get clean \
+&&  rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN mkdir -p /products
 WORKDIR /products
