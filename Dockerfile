@@ -10,6 +10,7 @@ RUN apt-get update \
 &&  apt-get upgrade -y --force-yes \
 &&  apt-get install -y --force-yes \
     sudo \
+    postgresql-client \
 &&  apt-get clean \
 &&  rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
